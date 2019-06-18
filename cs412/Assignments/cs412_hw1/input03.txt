@@ -1,0 +1,13 @@
+3
+A C
+C B D
+A C D B
+A C
+C B D
+A C D B
+A C
+C B D
+A C D B
+A C
+C B D
+A C D B
