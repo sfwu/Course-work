@@ -42,7 +42,7 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
 	 * 
 	 * @throws Exception
 	 */
-	public void testAddSleepEntryToEmptySleepDiary() throws Exception {
+	public void testAddPrescriptionEntryToEmptyPrescriptionDiary() throws Exception {
 
         // login
 		WebDriver driver = new HtmlUnitDriver(true);
@@ -77,13 +77,13 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
 
         // Ensure the entry was added.
         // :0 mean the 0 row of the table
-		WebElement valDate = driver.findElement(By.name("GivenDate:0"));
+		WebElement valDate = driver.findElement(By.name("givenDate:0"));
         assertEquals("08/08/2010", valDate.getAttribute(VALUE));
 
-        WebElement valName = driver.findElement(By.name("GivenName:0"));
+        WebElement valName = driver.findElement(By.name("givenName:0"));
         assertEquals("poinson", valName.getAttribute(VALUE));
 
-        WebElement valNum = driver.findElement(By.name("GivenNum:0"));
+        WebElement valNum = driver.findElement(By.name("givenNum:0"));
         assertEquals("5", valNum.getAttribute(VALUE));
 	}
 
@@ -93,7 +93,7 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
 	 * 
 	 * @throws Exception
 	 */
-	public void testAddSleepEntryToNonEmptySleepDiary() throws Exception {
+	public void testAddPrescriptionEntryToNonEmptyPrescriptionDiary() throws Exception {
 
         // login
 		WebDriver driver = new HtmlUnitDriver(true);
@@ -150,171 +150,167 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
 
         // Ensure the entry was added.
         // :0 mean the 0 row of the table
-		WebElement valDate = driver.findElement(By.name("GivenDate:0"));
+		WebElement valDate = driver.findElement(By.name("givenDate:0"));
         assertEquals("08/08/2010", valDate.getAttribute(VALUE));
 
-        WebElement valName = driver.findElement(By.name("GivenName:0"));
+        WebElement valName = driver.findElement(By.name("givenName:0"));
         assertEquals("poinson", valName.getAttribute(VALUE));
 
-        WebElement valNum = driver.findElement(By.name("GivenNum:0"));
+        WebElement valNum = driver.findElement(By.name("givenNum:0"));
         assertEquals("5", valNum.getAttribute(VALUE));
 
         // check the later added one 
-        valDate = driver.findElement(By.name("GivenDate:1"));
-        assertEquals("08/08/2010", valDate.getAttribute(VALUE));
+        valDate = driver.findElement(By.name("givenDate:1"));
+        assertEquals("08/20/2010", valDate.getAttribute(VALUE));
 
-        valName = driver.findElement(By.name("GivenName:1"));
-        assertEquals("poinson", valName.getAttribute(VALUE));
+        valName = driver.findElement(By.name("givenName:1"));
+        assertEquals("poinson1", valName.getAttribute(VALUE));
 
-        valNum = driver.findElement(By.name("GivenNum:1"));
-        assertEquals("5", valNum.getAttribute(VALUE));
-
-
-        
-
-
+        valNum = driver.findElement(By.name("givenNum:1"));
+        assertEquals("8", valNum.getAttribute(VALUE));
 
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	/**
-	 * Tests that a patient can add an entry to a non empty sleep diary.
+    /**
+	 * Tests that a patient can click "add" to add one to the num of taken pull of the Prescription Diary.
 	 * 
 	 * @throws Exception
 	 */
-	public void testAddSleepEntryToNonEmptySleepDiary() throws Exception {
+	public void testAddTakenNumOfPill() throws Exception {
+
+        // login
 		WebDriver driver = new HtmlUnitDriver(true);
-		driver = login("1", "pw"); // login as Random Person
-		driver.findElement(By.linkText("My Sleep Diary")).click();
-		assertEquals("iTrust - View My Sleep Diary", driver.getTitle());
+		driver = login("1", "pw"); 
 
-		// Get the first values.
-		WebElement valDate = driver.findElement(By.name("Date:0"));
-		assertEquals("12/14/2012", valDate.getAttribute(VALUE));
-		Select valType = new Select(driver.findElement(By.name("SleepType:0")));
-		assertEquals("Nap", valType.getFirstSelectedOption().getAttribute(VALUE));
-		WebElement valHours = driver.findElement(By.name("Hours:0"));
-		assertEquals("1.0", valHours.getAttribute(VALUE));
-
-		// Get the second values.
-		valDate = driver.findElement(By.name("Date:1"));
-		assertEquals("12/12/2012", valDate.getAttribute(VALUE));
-		valType = new Select(driver.findElement(By.name("SleepType:1")));
-		assertEquals("Nightly", valType.getFirstSelectedOption().getAttribute(VALUE));
-		valHours = driver.findElement(By.name("Hours:1"));
-		assertEquals("2.0", valHours.getAttribute(VALUE));
-
-		// Assert that the totals are correct.
-		WebElement totalTable = driver.findElements(By.tagName("table")).get(2);
-		List<WebElement> tableRows = totalTable.findElements(By.tagName("td"));
-		assertEquals("12/14/2012", tableRows.get(0).getText());
-		assertEquals("1.0", tableRows.get(1).getText());
-		assertEquals("12/12/2012", tableRows.get(2).getText());
-		assertEquals("2.0", tableRows.get(3).getText());
-
-		// Add a new entry.
-		driver.findElement(By.linkText("Add an entry to your Sleep Diary."))
+		// View my prescription diary so we can add a new entry
+		driver.findElement(By.linkText("My Prescription Diary")).click();
+        assertEquals("iTrust - View My Prescription Diary", driver.getTitle());
+        
+        driver.findElement(By.linkText("Add an entry to your Prescription Diary."))
 				.click();
-		assertEquals("Add a Sleep Entry", driver.getTitle());
 
-		// Enter new entry.
+        // check the page name 
+		assertEquals("Add a Prescription Entry", driver.getTitle());
+
+		// Fill in all of the info and submit
 		WebElement strDate = driver.findElement(By.name("strDate"));
 		strDate.clear();
-		strDate.sendKeys("12/13/2012");
-		Select sleep = new Select(driver.findElement(By.name("strType")));
-		sleep.selectByValue("Nightly");
-		WebElement strHours = driver.findElement(By.name("strHours"));
-		strHours.clear();
-		strHours.sendKeys("3.0");
-		driver.findElement(By.tagName("form")).submit();
+		strDate.sendKeys("08/08/2010");
+        
+        // enter the type of the pill
+        WebElement strPillName = driver.findElement(By.name("strPillName"));
+		strPillName.clear();
+		strPillName.sendKeys("poinson");
 
-		assertEquals("iTrust - View My Sleep Diary", driver.getTitle());
+        //enter the number that the patient has to take
+		WebElement strNum = driver.findElement(By.name("strNum"));
+		strNum.clear();
+		strNum.sendKeys("5");
+        driver.findElement(By.tagName("form")).submit();
 
-		// Make sure the new entry shows up with the old entries.
-		valDate = driver.findElement(By.name("Date:0"));
-		assertEquals("12/14/2012", valDate.getAttribute(VALUE));
-		valType =  new Select(driver.findElement(By.name("SleepType:0")));
-		assertEquals("Nap", valType.getFirstSelectedOption().getAttribute(VALUE));
-		valHours = driver.findElement(By.name("Hours:0"));
-		assertEquals("1.0", valHours.getAttribute(VALUE));
 
-		valDate = driver.findElement(By.name("Date:1"));
-		assertEquals("12/13/2012", valDate.getAttribute(VALUE));
-		valType =  new Select(driver.findElement(By.name("SleepType:1")));
-		assertEquals("Nightly", valType.getFirstSelectedOption().getAttribute(VALUE));
-		valHours = driver.findElement(By.name("Hours:1"));
-		assertEquals("3.0", valHours.getAttribute(VALUE));
+        // Ensure the entry was added.
+        // :0 mean the 0 row of the table
+		WebElement valDate = driver.findElement(By.name("CurDate:0"));
+        assertEquals("08/08/2010", valDate.getAttribute(VALUE));
 
-		valDate = driver.findElement(By.name("Date:2"));
-		assertEquals("12/12/2012", valDate.getAttribute(VALUE));
-		valType = new Select(driver.findElement(By.name("SleepType:2")));
-		assertEquals("Nightly", valType.getFirstSelectedOption().getAttribute(VALUE));
-		valHours = driver.findElement(By.name("Hours:2"));
-		assertEquals("2.0", valHours.getAttribute(VALUE));
+        WebElement valName = driver.findElement(By.name("CurName:0"));
+        assertEquals("poinson", valName.getAttribute(VALUE));
 
-		// Assert the totals are correct.
-		totalTable = driver.findElements(By.tagName("table")).get(2);
-		tableRows = totalTable.findElements(By.tagName("td"));
-		assertEquals("12/14/2012", tableRows.get(0).getText());
-		assertEquals("1.0", tableRows.get(1).getText());
-		assertEquals("12/13/2012", tableRows.get(2).getText());
-		assertEquals("3.0", tableRows.get(3).getText());
+        WebElement valNum = driver.findElement(By.name("curNum:0"));
+        assertEquals("0", valNum.getAttribute(VALUE));
 
-		assertEquals("12/12/2012", tableRows.get(4).getText());
-		assertEquals("2.0", tableRows.get(5).getText());
-	}
+        driver.findElement(By.linkText("addNum"))
+                .click();
+        assertEquals("1", valNum.getAttribute(VALUE));
+        
+        driver.findElement(By.linkText("addNum"))
+                .click();
+        assertEquals("2", valNum.getAttribute(VALUE));
 
-	/**
-	 * Tests that HCPs can view a patients sleep diary.
+        driver.findElement(By.linkText("addNum"))
+                .click();
+        assertEquals("3", valNum.getAttribute(VALUE));
+        
+
+    }
+    
+    /**
+	 * Tests that a patient can click "minus" to subtract one to the num of taken pull of the Prescription Diary.
 	 * 
 	 * @throws Exception
 	 */
-	public void testHCPViewPatientSleepDiary() throws Exception {
+	public void testMinusTakenNumOfPill() throws Exception {
+
+        // login
 		WebDriver driver = new HtmlUnitDriver(true);
-		driver = login("9000000000", "pw");
-		driver.findElement(By.linkText("Patient Sleep Diaries")).click();
+		driver = login("1", "pw"); 
 
-		assertEquals("iTrust - Please Select a Patient", driver.getTitle());
-		// search for patient
-		driver.findElement(By.name("UID_PATIENTID")).sendKeys("1");
-		// the button to click should have the text of the MID
-		driver.findElement(By.cssSelector("input[value='1']")).submit();
-		assertEquals("iTrust - View Patient Sleep Diaries",
-				driver.getTitle());
+		// View my prescription diary so we can add a new entry
+		driver.findElement(By.linkText("My Prescription Diary")).click();
+        assertEquals("iTrust - View My Prescription Diary", driver.getTitle());
+        
+        driver.findElement(By.linkText("Add an entry to your Prescription Diary."))
+				.click();
 
-		// different way of viewing it since viewing it through HCP
-		WebElement entryTable = driver.findElements(By.tagName("table")).get(1);
-		List<WebElement> tableRows = entryTable.findElements(By.tagName("td"));
-		assertEquals("12/14/2012", tableRows.get(1).getText());
-		assertEquals("Nap", tableRows.get(2).getText());
-		assertEquals("1.0", tableRows.get(3).getText());
+        // check the page name 
+		assertEquals("Add a Prescription Entry", driver.getTitle());
 
-		assertEquals("12/12/2012", tableRows.get(5).getText());
-		assertEquals("Nightly", tableRows.get(6).getText());
-		assertEquals("2.0", tableRows.get(7).getText());
+		// Fill in all of the info and submit
+		WebElement strDate = driver.findElement(By.name("strDate"));
+		strDate.clear();
+		strDate.sendKeys("08/08/2010");
+        
+        // enter the type of the pill
+        WebElement strPillName = driver.findElement(By.name("strPillName"));
+		strPillName.clear();
+		strPillName.sendKeys("poinson");
+
+        //enter the number that the patient has to take
+		WebElement strNum = driver.findElement(By.name("strNum"));
+		strNum.clear();
+		strNum.sendKeys("5");
+        driver.findElement(By.tagName("form")).submit();
+
+
+        // Ensure the entry was added.
+        // :0 mean the 0 row of the table
+		WebElement valDate = driver.findElement(By.name("CurDate:0"));
+        assertEquals("08/08/2010", valDate.getAttribute(VALUE));
+
+        WebElement valName = driver.findElement(By.name("CurName:0"));
+        assertEquals("poinson", valName.getAttribute(VALUE));
+
+        WebElement valNum = driver.findElement(By.name("curNum:0"));
+        assertEquals("0", valNum.getAttribute(VALUE));
+
+        driver.findElement(By.linkText("addNum"))
+                .click();
+        assertEquals("1", valNum.getAttribute(VALUE));
+        
+        driver.findElement(By.linkText("addNum"))
+                .click();
+        assertEquals("2", valNum.getAttribute(VALUE));
+
+        driver.findElement(By.linkText("addNum"))
+                .click();
+        assertEquals("3", valNum.getAttribute(VALUE));
+        
+        driver.findElement(By.linkText("minusNum"))
+                .click();
+        assertEquals("2", valNum.getAttribute(VALUE));
+
+        driver.findElement(By.linkText("minusNum"))
+                .click();
+        assertEquals("1", valNum.getAttribute(VALUE));
+
+        driver.findElement(By.linkText("minusNum"))
+                .click();
+        assertEquals("0", valNum.getAttribute(VALUE));
+        
+
 	}
+
+
 	
 }
