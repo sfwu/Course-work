@@ -18,6 +18,7 @@
 			<li><a href="/iTrust/auth/patient/myFoodDiary.jsp">My Food Diary</a>
 			<li><a href="/iTrust/auth/patient/myExerciseDiary.jsp">My Exercise Diary</a>
 			<li><a href="/iTrust/auth/patient/mySleepDiary.jsp">My Sleep Diary</a>
+			<li><a href="/iTrust/auth/patient/myPrescriptionDiary.jsp">My Prescription Diary</a>
 			<li><a href="/iTrust/auth/patient/myLabels.jsp">My Labels</a>
 			<li><a href="/iTrust/auth/patient/macronutrients.jsp">Macronutrients</a>
 			<li><a href="/iTrust/auth/patient/designatedNutritionist.jsp">Designate a Nutritionist</a>
@@ -122,3 +123,4 @@
 		</ul>
 	</div>
 </div>
+

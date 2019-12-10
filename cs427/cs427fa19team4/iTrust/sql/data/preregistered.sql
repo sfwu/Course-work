@@ -1,2 +1,0 @@
-INSERT INTO patients SET firstName='Deepika',lastName='Gudavalli',email='deepika2@illinois.edu', MID=1234, preregistered=1;
-INSERT INTO patients SET firstName='Krastan',lastName='Dimitrov',email='blah@gmail.com', MID=12345, activated = 1;
