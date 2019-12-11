@@ -336,7 +336,7 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
 
 		// now delete the first row, the second row will then become the first row
 
-		driver.findElement(By.name("delete1")).submit();
+		driver.findElement(By.name("deleteRow1")).submit();
 
 		WebElement valDate = driver.findElement(By.id("curRow1C1"));
         assertEquals("10/10/2010", valDate.getText());
