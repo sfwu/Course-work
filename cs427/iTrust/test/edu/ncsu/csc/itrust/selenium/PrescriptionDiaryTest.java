@@ -200,13 +200,16 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
         WebElement valNum = driver.findElement(By.id("curRow1C3"));
         assertEquals("0", valNum.getText());
 
-        driver.findElement(By.name("addNum1")).submit();
+		driver.findElement(By.name("addNum1")).submit();
+		valNum = driver.findElement(By.id("curRow1C3"));
         assertEquals("1", valNum.getText());
         
-        driver.findElement(By.name("addNum1")).submit();
+		driver.findElement(By.name("addNum1")).submit();
+		valNum = driver.findElement(By.id("curRow1C3"));
         assertEquals("2", valNum.getText());
 
-        driver.findElement(By.name("addNum1")).submit();
+		driver.findElement(By.name("addNum1")).submit();
+		valNum = driver.findElement(By.id("curRow1C3"));
         assertEquals("3", valNum.getText());
         
 
