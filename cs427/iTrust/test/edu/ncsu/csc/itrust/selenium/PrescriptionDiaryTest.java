@@ -62,6 +62,7 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
 		newTakenNum.clear();
 		newTakenNum.sendKeys("5");
 		driver.findElement(By.name("addNewElement")).submit();
+		driver.findElement(By.name("addNewElement")).submit();
 
 		//assertEquals("iTrust - View My Prescription Diary", driver.getTitle());
 
@@ -108,6 +109,7 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
 		WebElement newTakenNum = driver.findElement(By.name("newTakenNum"));
 		newTakenNum.clear();
 		newTakenNum.sendKeys("5");
+		driver.findElement(By.name("addNewElement")).submit();
         driver.findElement(By.name("addNewElement")).submit();
 
 		//add one more
@@ -183,6 +185,7 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
 		WebElement newTakenNum = driver.findElement(By.name("newTakenNum"));
 		newTakenNum.clear();
 		newTakenNum.sendKeys("5");
+		driver.findElement(By.name("addNewElement")).submit();
         driver.findElement(By.name("addNewElement")).submit();
 
 
@@ -242,6 +245,7 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
 		WebElement newTakenNum = driver.findElement(By.name("newTakenNum"));
 		newTakenNum.clear();
 		newTakenNum.sendKeys("5");
+		driver.findElement(By.name("addNewElement")).submit();
         driver.findElement(By.name("addNewElement")).submit();
 
 
@@ -331,7 +335,7 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
 		newTakenNum = driver.findElement(By.name("newTakenNum"));
 		newTakenNum.clear();
 		newTakenNum.sendKeys("10");
-
+		driver.findElement(By.name("addNewElement")).submit();
 		driver.findElement(By.name("addNewElement")).submit();
 
 		// now delete the first row, the second row will then become the first row
