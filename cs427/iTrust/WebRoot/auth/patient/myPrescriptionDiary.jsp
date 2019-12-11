@@ -146,9 +146,9 @@
                     for (int i = 1; i < date.size(); i ++) {
                 %>
                 <tr>
-                    <td> <p name="<%=StringEscapeUtils.escapeHtml("curRow" + i + "C1")%>"> <%= StringEscapeUtils.escapeHtml(date.get(i)) %> </p> </td>
-                    <td> <p name="<%=StringEscapeUtils.escapeHtml("curRow" + i + "C2")%>"> <%= StringEscapeUtils.escapeHtml(pillType.get(i)) %> </p> </td>
-                    <td> <p name="<%=StringEscapeUtils.escapeHtml("curRow" + i + "C3")%>"> <%= StringEscapeUtils.escapeHtml(takenNum.get(i)) %> </p> </td>
+                    <td> <p class="<%=StringEscapeUtils.escapeHtml("curRow" + i + "C1")%>"> <%= StringEscapeUtils.escapeHtml(date.get(i)) %> </p> </td>
+                    <td> <p class="<%=StringEscapeUtils.escapeHtml("curRow" + i + "C2")%>"> <%= StringEscapeUtils.escapeHtml(pillType.get(i)) %> </p> </td>
+                    <td> <p class="<%=StringEscapeUtils.escapeHtml("curRow" + i + "C3")%>"> <%= StringEscapeUtils.escapeHtml(takenNum.get(i)) %> </p> </td>
                     <td>
                         <input type="submit" name="<%=StringEscapeUtils.escapeHtml("addNum" + i)%>" value="Add Num">
                     </td>
@@ -179,9 +179,9 @@
                 for (int i = 1; i < date.size(); i ++) {
             %>
             <tr>
-                <td> <p name="<%=StringEscapeUtils.escapeHtml("row" + i + "C1")%>"> <%= StringEscapeUtils.escapeHtml(date.get(i)) %> </p> </td>
-                <td> <p name="<%=StringEscapeUtils.escapeHtml("row" + i + "C2")%>"> <%= StringEscapeUtils.escapeHtml(pillType.get(i)) %> </p> </td>
-                <td> <p name="<%=StringEscapeUtils.escapeHtml("row" + i + "C3")%>"> <%= StringEscapeUtils.escapeHtml(requiredNum.get(i)) %> </p> </td>
+                <td> <p class="<%=StringEscapeUtils.escapeHtml("row" + i + "C1")%>"> <%= StringEscapeUtils.escapeHtml(date.get(i)) %> </p> </td>
+                <td> <p class="<%=StringEscapeUtils.escapeHtml("row" + i + "C2")%>"> <%= StringEscapeUtils.escapeHtml(pillType.get(i)) %> </p> </td>
+                <td> <p class="<%=StringEscapeUtils.escapeHtml("row" + i + "C3")%>"> <%= StringEscapeUtils.escapeHtml(requiredNum.get(i)) %> </p> </td>
             </tr>
             <%
                 }

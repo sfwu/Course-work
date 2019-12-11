@@ -73,13 +73,13 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
 
         // Ensure the entry was added.
         // :0 mean the 0 row of the table
-		WebElement valDate = driver.findElement(By.name("row1C1"));
+		WebElement valDate = driver.findElement(By.className("row1C1"));
         assertEquals("08/08/2010", valDate.getText());
 
-        WebElement valName = driver.findElement(By.name("row1C2"));
+        WebElement valName = driver.findElement(By.className("row1C2"));
         assertEquals("poinson", valName.getText());
 
-        WebElement valNum = driver.findElement(By.name("row1C3"));
+        WebElement valNum = driver.findElement(By.className("row1C3"));
         assertEquals("5", valNum.getText());
 	}
 
@@ -138,23 +138,23 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
 
         // Ensure the entry was added.
         // :0 mean the 0 row of the table
-		WebElement valDate = driver.findElement(By.name("row1C1"));
+		WebElement valDate = driver.findElement(By.className("row1C1"));
         assertEquals("08/08/2010", valDate.getText());
 
-        WebElement valName = driver.findElement(By.name("row1C2"));
+        WebElement valName = driver.findElement(By.className("row1C2"));
         assertEquals("poinson", valName.getText());
 
-        WebElement valNum = driver.findElement(By.name("row1C3"));
+        WebElement valNum = driver.findElement(By.className("row1C3"));
         assertEquals("5", valNum.getText());
 
         // check the later added one 
-        valDate = driver.findElement(By.name("row2C1"));
+        valDate = driver.findElement(By.className("row2C1"));
         assertEquals("08/20/2010", valDate.getText());
 
-        valName = driver.findElement(By.name("row2C2"));
+        valName = driver.findElement(By.className("row2C2"));
         assertEquals("poinson1", valName.getText());
 
-        valNum = driver.findElement(By.name("row2C3"));
+        valNum = driver.findElement(By.className("row2C3"));
         assertEquals("8", valNum.getText());
 
 	}
@@ -194,13 +194,13 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
 
         // Ensure the entry was added.
         // :0 mean the 0 row of the table
-		WebElement valDate = driver.findElement(By.name("curRow1C1"));
+		WebElement valDate = driver.findElement(By.className("curRow1C1"));
         assertEquals("08/08/2010", valDate.getText());
 
-        WebElement valName = driver.findElement(By.name("curRow1C2"));
+        WebElement valName = driver.findElement(By.className("curRow1C2"));
         assertEquals("poinson", valName.getText());
 
-        WebElement valNum = driver.findElement(By.name("curRow1C3"));
+        WebElement valNum = driver.findElement(By.className("curRow1C3"));
         assertEquals("0", valNum.getText());
 
         driver.findElement(By.linkText("addNum1"))
@@ -253,13 +253,13 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
 
         // Ensure the entry was added.
         // :0 mean the 0 row of the table
-		WebElement valDate = driver.findElement(By.name("CurDate:0"));
+		WebElement valDate = driver.findElement(By.className("CurDate:0"));
         assertEquals("08/08/2010", valDate.getText());
 
-        WebElement valName = driver.findElement(By.name("CurName:0"));
+        WebElement valName = driver.findElement(By.className("CurName:0"));
         assertEquals("poinson", valName.getText());
 
-        WebElement valNum = driver.findElement(By.name("curNum:0"));
+        WebElement valNum = driver.findElement(By.className("curNum:0"));
         assertEquals("0", valNum.getText());
 
         driver.findElement(By.linkText("addNum1"))
@@ -344,24 +344,24 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
 
 		driver.findElement(By.name("delete1")).submit();
 
-		WebElement valDate = driver.findElement(By.name("curRow1C1"));
+		WebElement valDate = driver.findElement(By.className("curRow1C1"));
         assertEquals("10/10/2010", valDate.getText());
 
-        WebElement valName = driver.findElement(By.name("curRow1C2"));
+        WebElement valName = driver.findElement(By.className("curRow1C2"));
         assertEquals("poinson2", valName.getText());
 
-        WebElement valNum = driver.findElement(By.name("curRow1C3"));
+        WebElement valNum = driver.findElement(By.className("curRow1C3"));
         assertEquals("0", valNum.getText());
 
         // Ensure the entry was added.
         // :0 mean the 0 row of the table
-		valDate = driver.findElement(By.name("row1C1"));
+		valDate = driver.findElement(By.className("row1C1"));
         assertEquals("10/10/2010", valDate.getText());
 
-        valName = driver.findElement(By.name("row1C2"));
+        valName = driver.findElement(By.className("row1C2"));
         assertEquals("poinson2", valName.getText());
 
-        valNum = driver.findElement(By.name("row1C3"));
+        valNum = driver.findElement(By.className("row1C3"));
         assertEquals("10", valNum.getText());
 	}
 	
