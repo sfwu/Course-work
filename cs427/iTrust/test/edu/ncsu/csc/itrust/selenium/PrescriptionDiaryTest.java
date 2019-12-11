@@ -6,13 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-import org.openqa.selenium.support.ui.Select;
 
-import edu.ncsu.csc.itrust.action.AddSleepEntryAction;
-import edu.ncsu.csc.itrust.action.DeleteSleepEntryAction;
-import edu.ncsu.csc.itrust.action.ViewSleepEntryAction;
-import edu.ncsu.csc.itrust.beans.SleepEntryBean;
-import edu.ncsu.csc.itrust.unit.testutils.TestDAOFactory;
 
 /**
  * Tests the functionality of the new Sleep Diary portion of iTrust. Tests
@@ -73,13 +67,13 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
 
         // Ensure the entry was added.
 		// :0 mean the 0 row of the table
-		WebElement valDate = driver.findElement(By.className("row1C1"));
+		WebElement valDate = driver.findElement(By.id("row1C1"));
         assertEquals("08/08/2010", valDate.getText());
 
-        WebElement valName = driver.findElement(By.className("row1C2"));
+        WebElement valName = driver.findElement(By.id("row1C2"));
         assertEquals("poinson", valName.getText());
 
-        WebElement valNum = driver.findElement(By.className("row1C3"));
+        WebElement valNum = driver.findElement(By.id("row1C3"));
         assertEquals("5", valNum.getText());
 	}
 
@@ -138,23 +132,23 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
 
         // Ensure the entry was added.
         // :0 mean the 0 row of the table
-		WebElement valDate = driver.findElement(By.className("row1C1"));
+		WebElement valDate = driver.findElement(By.id("row1C1"));
         assertEquals("08/08/2010", valDate.getText());
 
-        WebElement valName = driver.findElement(By.className("row1C2"));
+        WebElement valName = driver.findElement(By.id("row1C2"));
         assertEquals("poinson", valName.getText());
 
-        WebElement valNum = driver.findElement(By.className("row1C3"));
+        WebElement valNum = driver.findElement(By.id("row1C3"));
         assertEquals("5", valNum.getText());
 
         // check the later added one 
-        valDate = driver.findElement(By.className("row2C1"));
+        valDate = driver.findElement(By.id("row2C1"));
         assertEquals("08/20/2010", valDate.getText());
 
-        valName = driver.findElement(By.className("row2C2"));
+        valName = driver.findElement(By.id("row2C2"));
         assertEquals("poinson1", valName.getText());
 
-        valNum = driver.findElement(By.className("row2C3"));
+        valNum = driver.findElement(By.id("row2C3"));
         assertEquals("8", valNum.getText());
 
 	}
@@ -194,13 +188,13 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
 
         // Ensure the entry was added.
         // :0 mean the 0 row of the table
-		WebElement valDate = driver.findElement(By.className("curRow1C1"));
+		WebElement valDate = driver.findElement(By.id("curRow1C1"));
         assertEquals("08/08/2010", valDate.getText());
 
-        WebElement valName = driver.findElement(By.className("curRow1C2"));
+        WebElement valName = driver.findElement(By.id("curRow1C2"));
         assertEquals("poinson", valName.getText());
 
-        WebElement valNum = driver.findElement(By.className("curRow1C3"));
+        WebElement valNum = driver.findElement(By.id("curRow1C3"));
         assertEquals("0", valNum.getText());
 
         driver.findElement(By.linkText("addNum1"))
@@ -253,13 +247,13 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
 
         // Ensure the entry was added.
         // :0 mean the 0 row of the table
-		WebElement valDate = driver.findElement(By.className("curRow1C1"));
+		WebElement valDate = driver.findElement(By.id("curRow1C1"));
         assertEquals("08/08/2010", valDate.getText());
 
-        WebElement valName = driver.findElement(By.className("curRow1C2"));
+        WebElement valName = driver.findElement(By.id("curRow1C2"));
         assertEquals("poinson", valName.getText());
 
-        WebElement valNum = driver.findElement(By.className("curRow1C3"));
+        WebElement valNum = driver.findElement(By.id("curRow1C3"));
         assertEquals("0", valNum.getText());
 
         driver.findElement(By.linkText("addNum1"))
@@ -344,24 +338,24 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
 
 		driver.findElement(By.name("delete1")).submit();
 
-		WebElement valDate = driver.findElement(By.className("curRow1C1"));
+		WebElement valDate = driver.findElement(By.id("curRow1C1"));
         assertEquals("10/10/2010", valDate.getText());
 
-        WebElement valName = driver.findElement(By.className("curRow1C2"));
+        WebElement valName = driver.findElement(By.id("curRow1C2"));
         assertEquals("poinson2", valName.getText());
 
-        WebElement valNum = driver.findElement(By.className("curRow1C3"));
+        WebElement valNum = driver.findElement(By.id("curRow1C3"));
         assertEquals("0", valNum.getText());
 
         // Ensure the entry was added.
         // :0 mean the 0 row of the table
-		valDate = driver.findElement(By.className("row1C1"));
+		valDate = driver.findElement(By.id("row1C1"));
         assertEquals("10/10/2010", valDate.getText());
 
-        valName = driver.findElement(By.className("row1C2"));
+        valName = driver.findElement(By.id("row1C2"));
         assertEquals("poinson2", valName.getText());
 
-        valNum = driver.findElement(By.className("row1C3"));
+        valNum = driver.findElement(By.id("row1C3"));
         assertEquals("10", valNum.getText());
 	}
 	
