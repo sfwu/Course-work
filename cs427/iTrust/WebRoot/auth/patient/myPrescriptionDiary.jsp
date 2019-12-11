@@ -162,7 +162,7 @@
             </tr>
             <tr style="text-align: center;">
                 <td colspan="3">
-                    <input type="submit" name="submitNew" value="Add" />
+                    <input type="submit" id="submitNew" name="submitNew" value="Add" />
                 </td>
             </tr>
             <tr>
