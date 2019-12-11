@@ -200,15 +200,15 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
         WebElement valNum = driver.findElement(By.id("curRow1C3"));
         assertEquals("0", valNum.getText());
 
-        driver.findElement(By.linkText("addNum1"))
+        driver.findElement(By.name("addNum1"))
                 .click();
         assertEquals("1", valNum.getText());
         
-        driver.findElement(By.linkText("addNum1"))
+        driver.findElement(By.name("addNum1"))
                 .click();
         assertEquals("2", valNum.getText());
 
-        driver.findElement(By.linkText("addNum1"))
+        driver.findElement(By.name("addNum1"))
                 .click();
         assertEquals("3", valNum.getText());
         
@@ -260,27 +260,27 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
         WebElement valNum = driver.findElement(By.id("curRow1C3"));
         assertEquals("0", valNum.getText());
 
-        driver.findElement(By.linkText("addNum1"))
+        driver.findElement(By.name("addNum1"))
                 .click();
         assertEquals("1", valNum.getText());
         
-        driver.findElement(By.linkText("addNum1"))
+        driver.findElement(By.name("addNum1"))
                 .click();
         assertEquals("2", valNum.getText());
 
-        driver.findElement(By.linkText("addNum1"))
+        driver.findElement(By.name("addNum1"))
                 .click();
         assertEquals("3", valNum.getText());
         
-        driver.findElement(By.linkText("minusNum1"))
+        driver.findElement(By.name("minusNum1"))
                 .click();
         assertEquals("2", valNum.getText());
 
-        driver.findElement(By.linkText("minusNum1"))
+        driver.findElement(By.name("minusNum1"))
                 .click();
         assertEquals("1", valNum.getText());
 
-        driver.findElement(By.linkText("minusNum1"))
+        driver.findElement(By.name("minusNum1"))
                 .click();
         assertEquals("0", valNum.getText());
         

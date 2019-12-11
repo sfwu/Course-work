@@ -178,7 +178,7 @@
                 for (int i = 1; i < date.size(); i ++) {
             %>
             <tr>
-                <td id="<%=StringEscapeUtils.escapeHtml("row" + Integer.toString(i) + "C1")%>"> <%= StringEscapeUtils.escapeHtml(date.get(i)) %>  </td>
+                <td> <p id="<%=StringEscapeUtils.escapeHtml("row" + Integer.toString(i) + "C1")%>"> <%= StringEscapeUtils.escapeHtml(date.get(i)) %> </p>  </td>
                 <td> <p id="<%=StringEscapeUtils.escapeHtml("row" + Integer.toString(i) + "C2")%>"> <%= StringEscapeUtils.escapeHtml(pillType.get(i)) %> </p> </td>
                 <td> <p id="<%=StringEscapeUtils.escapeHtml("row" + Integer.toString(i) + "C3")%>"> <%= StringEscapeUtils.escapeHtml(requiredNum.get(i)) %> </p> </td>
             </tr>
