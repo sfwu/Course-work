@@ -69,6 +69,14 @@
     %>
 
     <%
+
+         // cannot add here
+        if (request.getParameter("submitNew") != null) {
+            date.add(newDate);
+            pillType.add(newPillType);
+            takenNum.add(newTakenNum);
+        }
+
         for (int i = 0; i < date.size(); i++) {
             if (request.getParameter("addNum" + Integer.toString(i)) != null) {
                 takenNum.set(i, Integer.toString(Integer.parseInt(takenNum.get(i)) + 1));
@@ -78,12 +86,7 @@
             }
         }
 
-        // cannot add here
-        if (request.getParameter("submitNew") != null) {
-            date.add(newDate);
-            pillType.add(newPillType);
-            takenNum.add(newTakenNum);
-        }
+       
     %>
 
     <br />
