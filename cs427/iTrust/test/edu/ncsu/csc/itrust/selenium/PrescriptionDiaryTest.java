@@ -51,40 +51,36 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
 		// View my prescription diary so we can add a new entry
 		driver.findElement(By.linkText("My Prescription Diary")).click();
 		assertEquals("iTrust - View My Prescription Diary", driver.getTitle());
-		driver.findElement(By.linkText("Add an entry to your Prescription Diary."))
-				.click();
 
-        // check the page name 
-		assertEquals("Add a Prescription Entry", driver.getTitle());
 
 		// Fill in all of the info and submit
-		WebElement strDate = driver.findElement(By.name("strDate"));
-		strDate.clear();
-		strDate.sendKeys("08/08/2010");
+		WebElement newDate = driver.findElement(By.name("newDate"));
+		newDate.clear();
+		newDate.sendKeys("08/08/2010");
         
         // enter the type of the pill
-        WebElement strPillName = driver.findElement(By.name("strPillName"));
-		strPillName.clear();
-		strPillName.sendKeys("poinson");
+        WebElement newPillType = driver.findElement(By.name("newPillType"));
+		newPillType.clear();
+		newPillType.sendKeys("poinson");
 
         //enter the number that the patient has to take
-		WebElement strNum = driver.findElement(By.name("strNum"));
-		strNum.clear();
-		strNum.sendKeys("5");
-		driver.findElement(By.tagName("form")).submit();
+		WebElement newTakenNum = driver.findElement(By.name("newTakenNum"));
+		newTakenNum.clear();
+		newTakenNum.sendKeys("5");
+		driver.findElement(By.name("submitNew")).submit();
 
 		assertEquals("iTrust - View My Prescription Diary", driver.getTitle());
 
         // Ensure the entry was added.
         // :0 mean the 0 row of the table
-		WebElement valDate = driver.findElement(By.name("givenDate:0"));
-        assertEquals("08/08/2010", valDate.getAttribute(VALUE));
+		WebElement valDate = driver.findElement(By.name("row1C1"));
+        assertEquals("08/08/2010", valDate.getText());
 
-        WebElement valName = driver.findElement(By.name("givenName:0"));
-        assertEquals("poinson", valName.getAttribute(VALUE));
+        WebElement valName = driver.findElement(By.name("row1C2"));
+        assertEquals("poinson", valName.getText());
 
-        WebElement valNum = driver.findElement(By.name("givenNum:0"));
-        assertEquals("5", valNum.getAttribute(VALUE));
+        WebElement valNum = driver.findElement(By.name("row1C3"));
+        assertEquals("5", valNum.getText());
 	}
 
 
@@ -102,72 +98,64 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
 		// View my prescription diary so we can add a new entry
 		driver.findElement(By.linkText("My Prescription Diary")).click();
 		assertEquals("iTrust - View My Prescription Diary", driver.getTitle());
-		driver.findElement(By.linkText("Add an entry to your Prescription Diary."))
-				.click();
 
-        // check the page name 
-		assertEquals("Add a Prescription Entry", driver.getTitle());
 
 		// Fill in all of the info and submit
-		WebElement strDate = driver.findElement(By.name("strDate"));
-		strDate.clear();
-		strDate.sendKeys("08/08/2010");
+		WebElement newDate = driver.findElement(By.name("newDate"));
+		newDate.clear();
+		newDate.sendKeys("08/08/2010");
         
         // enter the type of the pill
-        WebElement strPillName = driver.findElement(By.name("strPillName"));
-		strPillName.clear();
-		strPillName.sendKeys("poinson");
+        WebElement newPillType = driver.findElement(By.name("newPillType"));
+		newPillType.clear();
+		newPillType.sendKeys("poinson");
 
         //enter the number that the patient has to take
-		WebElement strNum = driver.findElement(By.name("strNum"));
-		strNum.clear();
-		strNum.sendKeys("5");
-        driver.findElement(By.tagName("form")).submit();
+		WebElement newTakenNum = driver.findElement(By.name("newTakenNum"));
+		newTakenNum.clear();
+		newTakenNum.sendKeys("5");
+        driver.findElement(By.name("submitNew")).submit();
 
-        // Now we add onemore
-        driver.findElement(By.linkText("Add an entry to your Prescription Diary."))
-				.click();
-        // check the page name 
-		assertEquals("Add a Prescription Entry", driver.getTitle());
+		//add one more
 
 		// Fill in all of the info and submit
-		strDate = driver.findElement(By.name("strDate"));
-		strDate.clear();
-		strDate.sendKeys("08/20/2010");
+		newDate = driver.findElement(By.name("newDate"));
+		newDate.clear();
+		newDate.sendKeys("08/20/2010");
         
         // enter the type of the pill
-        strPillName = driver.findElement(By.name("strPillName"));
-		strPillName.clear();
-		strPillName.sendKeys("poinson1");
+        newPillType = driver.findElement(By.name("newPillType"));
+		newPillType.clear();
+		newPillType.sendKeys("poinson1");
 
         //enter the number that the patient has to take
-		strNum = driver.findElement(By.name("strNum"));
-		strNum.clear();
-		strNum.sendKeys("8");
-		driver.findElement(By.tagName("form")).submit();
+		newTakenNum = driver.findElement(By.name("newTakenNum"));
+		newTakenNum.clear();
+		newTakenNum.sendKeys("8");
+		driver.findElement(By.name("submitNew")).submit();
 
 		assertEquals("iTrust - View My Prescription Diary", driver.getTitle());
 
         // Ensure the entry was added.
         // :0 mean the 0 row of the table
-		WebElement valDate = driver.findElement(By.name("givenDate:0"));
-        assertEquals("08/08/2010", valDate.getAttribute(VALUE));
+		WebElement valDate = driver.findElement(By.name("row1C1"));
+        assertEquals("08/08/2010", valDate.getText());
 
-        WebElement valName = driver.findElement(By.name("givenName:0"));
-        assertEquals("poinson", valName.getAttribute(VALUE));
+        WebElement valName = driver.findElement(By.name("row1C2"));
+        assertEquals("poinson", valName.getText());
 
-        WebElement valNum = driver.findElement(By.name("givenNum:0"));
-        assertEquals("5", valNum.getAttribute(VALUE));
+        WebElement valNum = driver.findElement(By.name("row1C3"));
+        assertEquals("5", valNum.getText());
 
         // check the later added one 
-        valDate = driver.findElement(By.name("givenDate:1"));
-        assertEquals("08/20/2010", valDate.getAttribute(VALUE));
+        valDate = driver.findElement(By.name("row2C1"));
+        assertEquals("08/20/2010", valDate.getText());
 
-        valName = driver.findElement(By.name("givenName:1"));
-        assertEquals("poinson1", valName.getAttribute(VALUE));
+        valName = driver.findElement(By.name("row2C2"));
+        assertEquals("poinson1", valName.getText());
 
-        valNum = driver.findElement(By.name("givenNum:1"));
-        assertEquals("8", valNum.getAttribute(VALUE));
+        valNum = driver.findElement(By.name("row2C3"));
+        assertEquals("8", valNum.getText());
 
 	}
 
@@ -186,51 +174,46 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
 		driver.findElement(By.linkText("My Prescription Diary")).click();
         assertEquals("iTrust - View My Prescription Diary", driver.getTitle());
         
-        driver.findElement(By.linkText("Add an entry to your Prescription Diary."))
-				.click();
-
-        // check the page name 
-		assertEquals("Add a Prescription Entry", driver.getTitle());
 
 		// Fill in all of the info and submit
-		WebElement strDate = driver.findElement(By.name("strDate"));
-		strDate.clear();
-		strDate.sendKeys("08/08/2010");
+		WebElement newDate = driver.findElement(By.name("newDate"));
+		newDate.clear();
+		newDate.sendKeys("08/08/2010");
         
         // enter the type of the pill
-        WebElement strPillName = driver.findElement(By.name("strPillName"));
-		strPillName.clear();
-		strPillName.sendKeys("poinson");
+        WebElement newPillType = driver.findElement(By.name("newPillType"));
+		newPillType.clear();
+		newPillType.sendKeys("poinson");
 
         //enter the number that the patient has to take
-		WebElement strNum = driver.findElement(By.name("strNum"));
-		strNum.clear();
-		strNum.sendKeys("5");
-        driver.findElement(By.tagName("form")).submit();
+		WebElement newTakenNum = driver.findElement(By.name("newTakenNum"));
+		newTakenNum.clear();
+		newTakenNum.sendKeys("5");
+        driver.findElement(By.name("submitNew")).submit();
 
 
         // Ensure the entry was added.
         // :0 mean the 0 row of the table
-		WebElement valDate = driver.findElement(By.name("CurDate:0"));
-        assertEquals("08/08/2010", valDate.getAttribute(VALUE));
+		WebElement valDate = driver.findElement(By.name("curRow1C1"));
+        assertEquals("08/08/2010", valDate.getText());
 
-        WebElement valName = driver.findElement(By.name("CurName:0"));
-        assertEquals("poinson", valName.getAttribute(VALUE));
+        WebElement valName = driver.findElement(By.name("curRow1C2"));
+        assertEquals("poinson", valName.getText());
 
-        WebElement valNum = driver.findElement(By.name("curNum:0"));
-        assertEquals("0", valNum.getAttribute(VALUE));
+        WebElement valNum = driver.findElement(By.name("curRow1C3"));
+        assertEquals("0", valNum.getText());
 
-        driver.findElement(By.linkText("addNum"))
+        driver.findElement(By.linkText("addNum1"))
                 .click();
-        assertEquals("1", valNum.getAttribute(VALUE));
+        assertEquals("1", valNum.getText());
         
-        driver.findElement(By.linkText("addNum"))
+        driver.findElement(By.linkText("addNum1"))
                 .click();
-        assertEquals("2", valNum.getAttribute(VALUE));
+        assertEquals("2", valNum.getText());
 
-        driver.findElement(By.linkText("addNum"))
+        driver.findElement(By.linkText("addNum1"))
                 .click();
-        assertEquals("3", valNum.getAttribute(VALUE));
+        assertEquals("3", valNum.getText());
         
 
     }
@@ -249,68 +232,137 @@ public class PrescriptionDiaryTest extends iTrustSeleniumTest {
 		// View my prescription diary so we can add a new entry
 		driver.findElement(By.linkText("My Prescription Diary")).click();
         assertEquals("iTrust - View My Prescription Diary", driver.getTitle());
-        
-        driver.findElement(By.linkText("Add an entry to your Prescription Diary."))
-				.click();
 
-        // check the page name 
-		assertEquals("Add a Prescription Entry", driver.getTitle());
 
 		// Fill in all of the info and submit
-		WebElement strDate = driver.findElement(By.name("strDate"));
-		strDate.clear();
-		strDate.sendKeys("08/08/2010");
+		WebElement newDate = driver.findElement(By.name("newDate"));
+		newDate.clear();
+		newDate.sendKeys("08/08/2010");
         
         // enter the type of the pill
-        WebElement strPillName = driver.findElement(By.name("strPillName"));
-		strPillName.clear();
-		strPillName.sendKeys("poinson");
+        WebElement newPillType = driver.findElement(By.name("newPillType"));
+		newPillType.clear();
+		newPillType.sendKeys("poinson");
 
         //enter the number that the patient has to take
-		WebElement strNum = driver.findElement(By.name("strNum"));
-		strNum.clear();
-		strNum.sendKeys("5");
-        driver.findElement(By.tagName("form")).submit();
+		WebElement newTakenNum = driver.findElement(By.name("newTakenNum"));
+		newTakenNum.clear();
+		newTakenNum.sendKeys("5");
+        driver.findElement(By.name("submitNew")).submit();
 
 
         // Ensure the entry was added.
         // :0 mean the 0 row of the table
 		WebElement valDate = driver.findElement(By.name("CurDate:0"));
-        assertEquals("08/08/2010", valDate.getAttribute(VALUE));
+        assertEquals("08/08/2010", valDate.getText());
 
         WebElement valName = driver.findElement(By.name("CurName:0"));
-        assertEquals("poinson", valName.getAttribute(VALUE));
+        assertEquals("poinson", valName.getText());
 
         WebElement valNum = driver.findElement(By.name("curNum:0"));
-        assertEquals("0", valNum.getAttribute(VALUE));
+        assertEquals("0", valNum.getText());
 
-        driver.findElement(By.linkText("addNum"))
+        driver.findElement(By.linkText("addNum1"))
                 .click();
-        assertEquals("1", valNum.getAttribute(VALUE));
+        assertEquals("1", valNum.getText());
         
-        driver.findElement(By.linkText("addNum"))
+        driver.findElement(By.linkText("addNum1"))
                 .click();
-        assertEquals("2", valNum.getAttribute(VALUE));
+        assertEquals("2", valNum.getText());
 
-        driver.findElement(By.linkText("addNum"))
+        driver.findElement(By.linkText("addNum1"))
                 .click();
-        assertEquals("3", valNum.getAttribute(VALUE));
+        assertEquals("3", valNum.getText());
         
-        driver.findElement(By.linkText("minusNum"))
+        driver.findElement(By.linkText("minusNum1"))
                 .click();
-        assertEquals("2", valNum.getAttribute(VALUE));
+        assertEquals("2", valNum.getText());
 
-        driver.findElement(By.linkText("minusNum"))
+        driver.findElement(By.linkText("minusNum1"))
                 .click();
-        assertEquals("1", valNum.getAttribute(VALUE));
+        assertEquals("1", valNum.getText());
 
-        driver.findElement(By.linkText("minusNum"))
+        driver.findElement(By.linkText("minusNum1"))
                 .click();
-        assertEquals("0", valNum.getAttribute(VALUE));
+        assertEquals("0", valNum.getText());
         
 
 	}
 
+	/**
+	 * Tests that a patient can click "add" to empty Prescription Diary.
+	 * 
+	 * @throws Exception
+	 */
+	public void testDeletePrescriptionEntryFromPrescriptionDiary() throws Exception {
 
+        // login
+		WebDriver driver = new HtmlUnitDriver(true);
+		driver = login("1", "pw"); 
+
+		// View my prescription diary so we can add a new entry
+		driver.findElement(By.linkText("My Prescription Diary")).click();
+		assertEquals("iTrust - View My Prescription Diary", driver.getTitle());
+
+
+		// Fill in all of the info and submit
+		WebElement newDate = driver.findElement(By.name("newDate"));
+		newDate.clear();
+		newDate.sendKeys("08/08/2010");
+        
+        // enter the type of the pill
+        WebElement newPillType = driver.findElement(By.name("newPillType"));
+		newPillType.clear();
+		newPillType.sendKeys("poinson1");
+
+        //enter the number that the patient has to take
+		WebElement newTakenNum = driver.findElement(By.name("newTakenNum"));
+		newTakenNum.clear();
+		newTakenNum.sendKeys("5");
+		driver.findElement(By.name("submitNew")).submit();
+
+		//add second column
+
+		// Fill in all of the info and submit
+		newDate = driver.findElement(By.name("newDate"));
+		newDate.clear();
+		newDate.sendKeys("10/10/2010");
+        
+        // enter the type of the pill
+        newPillType = driver.findElement(By.name("newPillType"));
+		newPillType.clear();
+		newPillType.sendKeys("poinson2");
+
+        //enter the number that the patient has to take
+		newTakenNum = driver.findElement(By.name("newTakenNum"));
+		newTakenNum.clear();
+		newTakenNum.sendKeys("10");
+
+		driver.findElement(By.name("submitNew")).submit();
+
+		// now delete the first row, the second row will then become the first row
+
+		driver.findElement(By.name("delete1")).submit();
+
+		WebElement valDate = driver.findElement(By.name("curRow1C1"));
+        assertEquals("10/10/2010", valDate.getText());
+
+        WebElement valName = driver.findElement(By.name("curRow1C2"));
+        assertEquals("poinson2", valName.getText());
+
+        WebElement valNum = driver.findElement(By.name("curRow1C3"));
+        assertEquals("0", valNum.getText());
+
+        // Ensure the entry was added.
+        // :0 mean the 0 row of the table
+		valDate = driver.findElement(By.name("row1C1"));
+        assertEquals("10/10/2010", valDate.getText());
+
+        valName = driver.findElement(By.name("row1C2"));
+        assertEquals("poinson2", valName.getText());
+
+        valNum = driver.findElement(By.name("row1C3"));
+        assertEquals("10", valNum.getText());
+	}
 	
 }
