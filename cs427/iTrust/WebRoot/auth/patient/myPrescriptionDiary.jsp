@@ -129,9 +129,9 @@
 
     %>
 
-    <br />
+    <br/>
     <div style="margin-left: 5px;">
-        <!-- Lower-case IDs are for edits. Each line's ACTUAL ID starts with an upper-case letter. -->
+        //<!-- Lower-case IDs are for edits. Each line's ACTUAL ID starts with an upper-case letter. -->
         <form id="beanForm" action="myPrescriptionDiary.jsp" method="post">
             <table class="fTable" border=1 align="center">
                 <tr>
