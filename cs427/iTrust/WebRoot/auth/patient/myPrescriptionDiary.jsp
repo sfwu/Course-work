@@ -142,12 +142,12 @@
                     <th> </th>
                 </tr>
                 <%
-                    for (int i = 1; i < date.size(); i ++) {
+                    for (int i = 0; i < date.size(); i ++) {
                 %>
                 <tr>
-                    <td> <p id="<%=StringEscapeUtils.escapeHtml("curRow" + Integer.toString(i) + "C1")%>"> <%= StringEscapeUtils.escapeHtml(date.get(i)) %> </p> </td>
-                    <td> <p id="<%=StringEscapeUtils.escapeHtml("curRow" + Integer.toString(i) + "C2")%>"> <%= StringEscapeUtils.escapeHtml(pillType.get(i)) %> </p> </td>
-                    <td> <p id="<%=StringEscapeUtils.escapeHtml("curRow" + Integer.toString(i) + "C3")%>"> <%= StringEscapeUtils.escapeHtml(takenNum.get(i)) %> </p> </td>
+                    <td> <p id="<%=StringEscapeUtils.escapeHtml("curRow" + Integer.toString(i+1) + "C1")%>"> <%= StringEscapeUtils.escapeHtml(date.get(i)) %> </p> </td>
+                    <td> <p id="<%=StringEscapeUtils.escapeHtml("curRow" + Integer.toString(i+1) + "C2")%>"> <%= StringEscapeUtils.escapeHtml(pillType.get(i)) %> </p> </td>
+                    <td> <p id="<%=StringEscapeUtils.escapeHtml("curRow" + Integer.toString(i+1) + "C3")%>"> <%= StringEscapeUtils.escapeHtml(takenNum.get(i)) %> </p> </td>
                     <td>
                         <input type="submit" name="<%=StringEscapeUtils.escapeHtml("addNum" + i)%>" value="Add Num">
                     </td>
@@ -175,12 +175,12 @@
                 <th>Taken Num</th>
             </tr>
             <%
-                for (int i = 1; i < date.size(); i ++) {
+                for (int i = 0; i < date.size(); i ++) {
             %>
             <tr>
-                <td id="<%=StringEscapeUtils.escapeHtml("row" + Integer.toString(i) + "C1")%>"> <%= StringEscapeUtils.escapeHtml(date.get(i)) %>  </td>
-                <td> <p id="<%=StringEscapeUtils.escapeHtml("row" + Integer.toString(i) + "C2")%>"> <%= StringEscapeUtils.escapeHtml(pillType.get(i)) %> </p> </td>
-                <td> <p id="<%=StringEscapeUtils.escapeHtml("row" + Integer.toString(i) + "C3")%>"> <%= StringEscapeUtils.escapeHtml(requiredNum.get(i)) %> </p> </td>
+                <td id="<%=StringEscapeUtils.escapeHtml("row" + Integer.toString(i+1) + "C1")%>"> <%= StringEscapeUtils.escapeHtml(date.get(i)) %>  </td>
+                <td> <p id="<%=StringEscapeUtils.escapeHtml("row" + Integer.toString(i+1) + "C2")%>"> <%= StringEscapeUtils.escapeHtml(pillType.get(i)) %> </p> </td>
+                <td> <p id="<%=StringEscapeUtils.escapeHtml("row" + Integer.toString(i+1) + "C3")%>"> <%= StringEscapeUtils.escapeHtml(requiredNum.get(i)) %> </p> </td>
             </tr>
             <%
                 }
