@@ -99,7 +99,7 @@
                     <th> </th>
                 </tr>
                 <%
-                    for (int i = 0; i < date.size(); i ++) {
+                    for (int i = 0; i < 10; i ++) {
                 %>
                 <tr>
                     <td> <%= StringEscapeUtils.escapeHtml(date.get(i)) %> </td>
